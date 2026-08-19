@@ -1,5 +1,0 @@
-Source: official Inter GitHub release
-Repository: rsms/inter
-Release tag used: v4.1
-Download date: 2026-08-19
-Note: Inter is licensed under the SIL Open Font License 1.1
