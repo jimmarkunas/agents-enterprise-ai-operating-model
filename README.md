@@ -12,7 +12,7 @@ A.G.E.N.T.S. is a practical operating model for putting enterprise AI into produ
 - [Download the PDF](./Free%20Toolkit%20Download/AGENTS-Enterprise-Model.pdf)
 - [Download the editable DOCX](./Free%20Toolkit%20Download/AGENTS-Enterprise-Model.docx)
 - [Star this repo](https://github.com/jimmarkunas/agents-enterprise-ai-operating-model)
-- [Report adoption](https://github.com/jimmarkunas/agents-enterprise-ai-operating-model/issues/new?template=adoption-report.yml)
+- [Report adoption](https://github.com/jimmarkunas/agents-enterprise-ai-operating-model/issues/new?template=adoption-report.yml&title=I%20used%20Jim%27s%20A.G.E.N.T.S.%20Toolkit%20to%20build...)
 
 The template kit includes the PDF, editable DOCX, and Inter font package for Mac and PC users.
 
@@ -47,7 +47,9 @@ Did it create value, and who owns the result?
 
 ## Adoption
 
-If you use A.G.E.N.T.S. in a team, organization, workshop, AI governance review, product planning session, or production readiness process, please open an adoption report. Public adoption reports help show how the system is being used and improved.
+If you use A.G.E.N.T.S. in a team, organization, workshop, AI governance review, product planning session, or production readiness process, please open an adoption report. The issue title will start with: "I used Jim's A.G.E.N.T.S. Toolkit to build..." Complete the sentence with what you built, planned, governed, tested, or improved.
+
+Public adoption reports help show how the system is being used and improved.
 
 ## License
 
