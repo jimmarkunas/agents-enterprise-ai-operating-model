@@ -1,15 +1,19 @@
 # A.G.E.N.T.S. Enterprise AI Operating Model
 
 Want to ACTUALLY get ROI out of Agentic AI?
-Here is how, in one complete enterprise system.
+Here is the complete enterprise model.
 
 A.G.E.N.T.S. is a practical operating model for putting enterprise AI into production with clear value, authority, guardrails, evidence, system boundaries, escalation, and accountable ownership.
 
-## Primary Links
+## Download the AGENTS Enterprise Model
 
-- [Download the PDF implementation package](docs/agents-enterprise-ai-implementation-package.pdf)
-- [Download the editable DOCX package](docs/agents-enterprise-ai-implementation-package.docx)
-- [Report adoption](.github/ISSUE_TEMPLATE/adoption-report.yml)
+- [Download the complete template kit](./AGENTS-Enterprise-Model-Template-Kit.zip)
+- [Download the PDF](./AGENTS-Enterprise-Model.pdf)
+- [Download the editable DOCX](./AGENTS-Enterprise-Model.docx)
+- [Star this repo](https://github.com/jimmarkunas/agents-enterprise-ai-operating-model)
+- [Report adoption](https://github.com/jimmarkunas/agents-enterprise-ai-operating-model/issues/new?template=adoption-report.yml)
+
+The template kit includes the PDF, editable DOCX, and the official Inter font ZIP for Mac and PC users.
 
 ## What A.G.E.N.T.S. covers
 
