@@ -1,0 +1,80 @@
+name: Adoption report
+description: Report how A.G.E.N.T.S. was used
+title: "[Adoption] "
+labels:
+  - adoption
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: Your name
+    validations:
+      required: true
+  - type: input
+    id: role
+    attributes:
+      label: Role
+      placeholder: Your role
+    validations:
+      required: true
+  - type: input
+    id: organization_or_team
+    attributes:
+      label: Organization or team
+      placeholder: Organization or team
+    validations:
+      required: true
+  - type: input
+    id: country
+    attributes:
+      label: Country
+      placeholder: Country
+    validations:
+      required: true
+  - type: textarea
+    id: usage
+    attributes:
+      label: How did you use A.G.E.N.T.S.?
+      placeholder: Describe the use case
+    validations:
+      required: true
+  - type: textarea
+    id: part_used
+    attributes:
+      label: Which part of the system did you use?
+      placeholder: A, G, E, N, T, S, or more than one
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: What decision, improvement, or outcome did it support?
+      placeholder: Share the result
+    validations:
+      required: true
+  - type: dropdown
+    id: cite_publicly
+    attributes:
+      label: Can Jim cite this publicly?
+      options:
+        - Yes
+        - No
+    validations:
+      required: true
+  - type: dropdown
+    id: contact_for_verification
+    attributes:
+      label: Can Jim contact you for verification?
+      options:
+        - Yes
+        - No
+    validations:
+      required: true
+  - type: input
+    id: contact_email
+    attributes:
+      label: Contact email, optional
+      placeholder: name@company.com
+    validations:
+      required: false

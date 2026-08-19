@@ -1,0 +1,13 @@
+name: Question
+description: Ask a question about A.G.E.N.T.S.
+title: "[Question] "
+labels:
+  - question
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      placeholder: Ask your question here
+    validations:
+      required: true
