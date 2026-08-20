@@ -1,7 +1,8 @@
 name: Adoption report
 description: Report how you used A.G.E.N.T.S. and what outcome it supported.
 title: "I used Jim's A.G.E.N.T.S. Toolkit to build..."
-labels: []
+labels:
+  - adoption
 assignees: []
 body:
   - type: markdown
