@@ -50,14 +50,6 @@ body:
       required: true
 
   - type: textarea
-    id: part_used
-    attributes:
-      label: Which part of the system did you use?
-      placeholder: A, G, E, N, T, S, or more than one
-    validations:
-      required: true
-
-  - type: textarea
     id: outcome
     attributes:
       label: What decision, improvement, or outcome did it support?
