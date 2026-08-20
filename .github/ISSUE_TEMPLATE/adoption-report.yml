@@ -1,9 +1,14 @@
 name: Adoption report
-description: Report how A.G.E.N.T.S. was used
+description: Report how you used A.G.E.N.T.S. and what outcome it supported.
 title: "I used Jim's A.G.E.N.T.S. Toolkit to build..."
-labels:
-  - adoption
+labels: []
+assignees: []
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for using A.G.E.N.T.S. Please describe the real use case and outcome so the adoption can be understood and verified.
+
   - type: input
     id: name
     attributes:
@@ -11,6 +16,7 @@ body:
       placeholder: Your name
     validations:
       required: true
+
   - type: input
     id: role
     attributes:
@@ -18,6 +24,7 @@ body:
       placeholder: Your role
     validations:
       required: true
+
   - type: input
     id: organization_or_team
     attributes:
@@ -25,6 +32,7 @@ body:
       placeholder: Organization or team
     validations:
       required: true
+
   - type: input
     id: country
     attributes:
@@ -32,6 +40,7 @@ body:
       placeholder: Country
     validations:
       required: true
+
   - type: textarea
     id: usage
     attributes:
@@ -39,6 +48,7 @@ body:
       placeholder: Describe the use case
     validations:
       required: true
+
   - type: textarea
     id: part_used
     attributes:
@@ -46,6 +56,7 @@ body:
       placeholder: A, G, E, N, T, S, or more than one
     validations:
       required: true
+
   - type: textarea
     id: outcome
     attributes:
@@ -53,24 +64,27 @@ body:
       placeholder: Share the result
     validations:
       required: true
+
   - type: dropdown
     id: cite_publicly
     attributes:
       label: Can Jim cite this publicly?
       options:
-        - Yes
-        - No
+        - "Yes"
+        - "No"
     validations:
       required: true
+
   - type: dropdown
     id: contact_for_verification
     attributes:
       label: Can Jim contact you for verification?
       options:
-        - Yes
-        - No
+        - "Yes"
+        - "No"
     validations:
       required: true
+
   - type: input
     id: contact_email
     attributes:
