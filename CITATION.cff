@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use or reference A.G.E.N.T.S., please cite the framework and its author using the metadata below."
+type: software
+title: "A.G.E.N.T.S. Enterprise AI Operating Model"
+authors:
+  - family-names: "Markunas"
+    given-names: "James Jeffrey"
+abstract: >-
+  A practical enterprise AI operating model for moving AI into production
+  with clear value, authority, guardrails, evidence, system boundaries,
+  escalation, and accountable ownership.
+license: CC-BY-4.0
+repository-code: "https://github.com/jimmarkunas/agents-enterprise-ai-operating-model"
+url: "https://github.com/jimmarkunas/agents-enterprise-ai-operating-model"
+keywords:
+  - enterprise AI
+  - agentic AI
+  - AI governance
+  - production readiness
+  - AI operating model
