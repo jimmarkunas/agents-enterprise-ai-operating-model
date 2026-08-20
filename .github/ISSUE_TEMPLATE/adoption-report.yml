@@ -76,11 +76,3 @@ body:
         - "No"
     validations:
       required: true
-
-  - type: input
-    id: contact_email
-    attributes:
-      label: Contact email, optional
-      placeholder: name@company.com
-    validations:
-      required: false
