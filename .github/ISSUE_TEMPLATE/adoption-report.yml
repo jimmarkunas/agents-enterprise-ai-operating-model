@@ -253,6 +253,15 @@ body:
     validations:
       required: true
 
+  - type: input
+    id: supporting_link
+    attributes:
+      label: Fork, implementation, or supporting link (optional)
+      description: Link to your A.G.E.N.T.S. fork, implementation, project, article, or other public evidence.
+      placeholder: https://...
+    validations:
+      required: false
+
   - type: dropdown
     id: cite_publicly
     attributes:
