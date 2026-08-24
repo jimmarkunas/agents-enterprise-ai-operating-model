@@ -38,8 +38,8 @@ Did it create value, and who owns the result?
 
 ## How to use this system
 
-1. Create a fork
-2. Download the free step-by-step toolkit above 
+1. Create a fork using the "Fork" CTA above.
+2. Download the free step-by-step toolkit above. 
 3. Define the enterprise business case.
 4. Map authority, access, and system boundaries.
 5. Set guardrails and evidence requirements.
