@@ -40,7 +40,7 @@ Did it create value, and who owns the result?
 
 1. Star the repo (above right), so you can easily find your way back to the original repo.
 2. Create a fork using the "Fork" CTA (above right), so you can run this system yourself.
-3. Download the free step-by-step toolkit above (file called "Free Toolkit Download). 
+3. Download the free step-by-step toolkit above (file called "Free Toolkit Download"). 
 4. Define the enterprise business case.
 5. Map authority, access, and system boundaries.
 6. Set guardrails and evidence requirements.
