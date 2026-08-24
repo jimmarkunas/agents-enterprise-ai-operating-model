@@ -38,7 +38,7 @@ Did it create value, and who owns the result?
 
 ## How to use this system
 
-1. Star the repo, so you can easily find your way back to the original repo
+1. Star the repo, so you can easily find your way back to the original repo.
 2. Create a fork using the "Fork" CTA above, so you can run this system yourself.
 3. Download the free step-by-step toolkit above. 
 4. Define the enterprise business case.
