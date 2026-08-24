@@ -38,12 +38,13 @@ Did it create value, and who owns the result?
 
 ## How to use this system
 
-1. Define the enterprise business case.
-2. Map authority, access, and system boundaries.
-3. Set guardrails and evidence requirements.
-4. Plan escalation and accountable ownership.
-5. Run the production readiness gate.
-6. Scale the model across the enterprise.
+1. Download the free step-by-step toolkit above 
+2. Define the enterprise business case.
+3. Map authority, access, and system boundaries.
+4. Set guardrails and evidence requirements.
+5. Plan escalation and accountable ownership.
+6. Run the production readiness gate.
+7. Scale the model across the enterprise.
 
 ## Adoption
 
