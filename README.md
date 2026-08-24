@@ -47,7 +47,7 @@ Did it create value, and who owns the result?
 7. Plan escalation and accountable ownership.
 8. Run the production readiness gate.
 9. Scale the model across the enterprise.
-10. Come back to the original repo (here) and click the "Submit an Adoption Report" link, so we can improve and track this repo.
+10. Come back to the original repo ([here](https://github.com/jimmarkunas/agents-enterprise-ai-operating-model)) and click the "Submit an Adoption Report" link, so we can improve and track this repo.
 
 ## Adoption
 
