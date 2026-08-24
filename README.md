@@ -38,14 +38,15 @@ Did it create value, and who owns the result?
 
 ## How to use this system
 
-1. Create a fork using the "Fork" CTA above.
-2. Download the free step-by-step toolkit above. 
-3. Define the enterprise business case.
-4. Map authority, access, and system boundaries.
-5. Set guardrails and evidence requirements.
-6. Plan escalation and accountable ownership.
-7. Run the production readiness gate.
-8. Scale the model across the enterprise.
+1. Star the repo, so you can easily find your way back to the original repo
+2. Create a fork using the "Fork" CTA above, so you can run this system yourself.
+3. Download the free step-by-step toolkit above. 
+4. Define the enterprise business case.
+5. Map authority, access, and system boundaries.
+6. Set guardrails and evidence requirements.
+7. Plan escalation and accountable ownership.
+8. Run the production readiness gate.
+9. Scale the model across the enterprise.
 
 ## Adoption
 
