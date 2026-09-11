@@ -1,10 +1,10 @@
-# A.G.E.N.T.S. Enterprise AI Operating Model
+# AGENTS Enterprise AI Operating Model
 
 Want to ACTUALLY get ROI out of Agentic AI?
 
 Here is the complete enterprise model.
 
-A.G.E.N.T.S. is a practical operating model for putting enterprise AI into production with clear value, authority, guardrails, evidence, system boundaries, escalation, and accountable ownership.
+AGENTS is a practical operating model for putting enterprise AI into production with clear value, authority, guardrails, evidence, system boundaries, escalation, and accountable ownership.
 
 ## Download the AGENTS Enterprise Model
 
@@ -16,7 +16,7 @@ A.G.E.N.T.S. is a practical operating model for putting enterprise AI into produ
 
 The template kit includes the PDF, editable DOCX, and Inter font package for Mac and PC users.
 
-## What A.G.E.N.T.S. covers
+## What AGENTS covers
 
 ### A: Authority
 What may AI do?
@@ -51,12 +51,12 @@ Did it create value, and who owns the result?
 
 ## Adoption
 
-If you use A.G.E.N.T.S. in a team, organization, workshop, AI governance review, product planning session, or production readiness process, please open an adoption report. The issue title will start with: "I used Jim's A.G.E.N.T.S. Toolkit to build..." Complete the sentence with what you built, planned, governed, tested, or improved.
+If you use AGENTS in a team, organization, workshop, AI governance review, product planning session, or production readiness process, please open an adoption report. The issue title will start with: "I used Jim's AGENTS Toolkit to build..." Complete the sentence with what you built, planned, governed, tested, or improved.
 
 Public adoption reports help show how the system is being used and improved.
 
 ## License
 
-The A.G.E.N.T.S. Enterprise AI Operating Model is released under Creative Commons Attribution 4.0 International.
+The AGENTS Enterprise AI Operating Model is released under Creative Commons Attribution 4.0 International.
 
 The Inter font package is distributed under the SIL Open Font License 1.1. See the license and provenance files included inside the template kit.
