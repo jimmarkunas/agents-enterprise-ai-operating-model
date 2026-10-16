@@ -1,0 +1,152 @@
+/*
+ * PDMA 2026 production deck — the six deck-specific compositions (02, 04, 05, 11, 12, 13).
+ * 05 is HERO v1 and 11 is Brand / Reveal v1 (docs/pdma2026/PDMA_VISUAL_APPROVALS_2026-09-24.md).
+ * Template-mapped slides use /components/presentation/templates/templates.css unchanged.
+ * Units are logical-canvas pixels (1920×1080, scaled uniformly by the shell).
+ * Content is Grid/Flex flow; absolute positioning is limited to approved title rows and decoration.
+ */
+
+/* ── Decorative motion / treatments for production artwork ───────── */
+.pdmat-slide .pdmat-deco-item--shift-field { animation: pdmat-shift-field 15s ease-in-out infinite; }
+.pdmat-slide .pdmat-deco-item--shift-ai { animation: pdmat-shift-ai 14s ease-in-out infinite; }
+.pdmat-slide .pdmat-deco-item--shift-human { animation: pdmat-shift-human 16s ease-in-out infinite; }
+@keyframes pdmat-shift-field { 0%, 100% { transform: none; opacity: .49; } 50% { transform: translateX(2px); opacity: .58; } }
+@keyframes pdmat-shift-ai { 0%, 100% { transform: none; } 50% { transform: translate(2px, -2px) scale(1.006); } }
+@keyframes pdmat-shift-human { 0%, 100% { transform: none; } 50% { transform: translate(-2px, 2px) scale(1.008); } }
+@media (prefers-reduced-motion: reduce) {
+  .pdmat-slide .pdmat-deco-item--shift-field, .pdmat-slide .pdmat-deco-item--shift-ai, .pdmat-slide .pdmat-deco-item--shift-human { animation: none; }
+}
+
+/* ── 02 WHAT SHIFTS. WHAT STAYS. ────────────────────────────────── */
+.pdma2026-production .pdma-logical-canvas .pdma-title-2 p { margin-top: 42px; }
+.pdma2026-production .pdma-logical-canvas .pdma-title-2 { height: 280px; }
+.pdma2026-production .pdma-logical-canvas .pdma-title-2 > h1:first-child { position: absolute; left: 0; top: 0; }
+.pdma2026-production .pdma-logical-canvas .pdma-title-2 > .pdma-title-magenta-row { position: absolute !important; left: 0; top: 88px !important; margin: 0; }
+.pdma2026-production .pdma-logical-canvas .pdma-title-2 > p { position: absolute; left: 0; top: 194px; margin: 0; }
+.pdma2026-production .pdma-logical-canvas .pdma-title-2 > h1:first-child,
+.pdma2026-production .pdma-logical-canvas .pdma-title-2 > .pdma-title-magenta-row { left: 0 !important; }
+.pdmat-slide.pdmat-slide--shift-boundary .pdmat-stage { --pdmat-title-gap: 117px; --pdmat-stage-bottom: 95px; }
+.pdmat-slide .pdmat-shift { display: grid; grid-template-columns: 608px minmax(0, 1fr) 530px; grid-template-rows: auto minmax(0, 1fr) auto; }
+.pdmat-slide .pdmat-shift__list { grid-row: 1; display: grid; grid-template-columns: 265px 245px; align-content: start; }
+.pdmat-slide .pdmat-shift__list--ai { grid-column: 1; padding-left: 8px; }
+.pdmat-slide .pdmat-shift__list--human { grid-column: 3; }
+.pdmat-slide .pdmat-shift__heading { font-size: 27px; line-height: 32px; font-weight: 600; letter-spacing: 4px; white-space: nowrap; }
+.pdmat-slide .pdmat-shift__rule { align-self: start; height: 2px; margin-top: 20px; background: #7a7d85; }
+.pdmat-slide .pdmat-shift__list ul { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 26px; margin-top: 61px; }
+.pdmat-slide .pdmat-shift__list li { display: flex; align-items: center; gap: 34px; height: 74px; font-size: 30px; line-height: 36px; white-space: nowrap; }
+.pdmat-slide .pdmat-shift__tile { border-width: 1px; border-color: #2d3136; background: #15181b; }
+.pdmat-slide .pdmat-shift__list--human .pdmat-shift__tile { border-color: #8d245f; background: #240e1d; }
+.pdmat-slide .pdmat-shift__boundary { grid-column: 1 / -1; grid-row: 3; display: flex; justify-content: center; align-items: center; gap: 28px; font-size: 27px; line-height: 40.5px; font-weight: 600; white-space: nowrap; }
+.pdmat-slide .pdmat-shift__boundary strong { font-weight: 600; }
+.pdmat-slide .pdmat-shift__divider { width: 1px; height: 42px; background: #7a7d85; }
+
+/* ── 04 DON'T AUTOMATE EVERYTHING. (PBDS north star) ────────────── */
+.pdmat-slide.pdmat-slide--work-map .pdmat-stage { --pdmat-stage-bottom: 104px; }
+.pdmat-slide .pdmat-workmap { display: grid; grid-template-rows: minmax(0, 1fr) auto auto; }
+.pdmat-slide .pdmat-workmap__modes { grid-row: 2; display: grid; grid-template-columns: repeat(3, 520px); column-gap: 55px; margin-left: 47px; }
+.pdmat-slide .pdmat-workmap__modes > li { box-sizing: border-box; display: flex; flex-direction: column; height: 232px; padding: 3px 0 16px 34px; border-left: 2px solid #3b4045; }
+.pdmat-slide .pdmat-workmap__number { font-size: 18px; line-height: 27px; color: #80858f; }
+.pdmat-slide .pdmat-workmap__title { margin-top: 7px; font-size: 32px; line-height: 48px; font-weight: 400; color: var(--pdmat-magenta); }
+.pdmat-slide .pdmat-workmap__body { margin-top: 12px; font-size: 24px; line-height: 32.4px; }
+.pdmat-slide .pdmat-workmap__label { margin-top: auto; font-size: 16px; line-height: 24px; font-weight: 700; letter-spacing: 6px; color: var(--pdmat-magenta); }
+.pdmat-slide .pdmat-workmap__takeaway { grid-row: 3; gap: 28px; min-height: 54px; margin-top: 32px; padding-top: 20px; }
+.pdmat-slide .pdmat-workmap__takeaway .pdmat-takeaway__text { font-size: 30px; line-height: 40px; font-weight: 600; }
+
+/* ── 05 DON'T AUTOMATE AMBIGUITY. · HERO v1 — Centered Signal Field ─ */
+/* Approved HERO exception: the whole composition, shell title included, is centered. */
+.pdma2026-production .pdma-logical-canvas .pdma-title-5 { top: 226px; text-align: center; }
+.pdma2026-production .pdma-logical-canvas .pdma-title-5 .pdma-title-magenta-row { font-size: 154px; line-height: 129px; letter-spacing: -7.7px; }
+.pdmat-slide.pdmat-slide--ambiguity-gate .pdmat-stage { --pdmat-title-gap: 179px; }
+.pdmat-slide .pdmat-hero { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.pdmat-slide .pdmat-hero__conditions { display: flex; align-items: flex-start; }
+.pdmat-slide .pdmat-hero__conditions > li { display: flex; align-items: flex-start; }
+.pdmat-slide .pdmat-hero__conditions p { display: flex; flex-direction: column; width: 180px; line-height: 31px; white-space: nowrap; }
+.pdmat-slide .pdmat-hero__conditions span { font-size: 25px; font-weight: 400; letter-spacing: 3px; }
+.pdmat-slide .pdmat-hero__conditions strong { font-size: 27px; font-weight: 800; }
+.pdmat-slide .pdmat-hero__link {
+  flex: 0 0 76px;
+  height: 6px;
+  margin: 25px 6px 0;
+  background:
+    radial-gradient(circle at calc(100% - 3px) 50%, var(--pdmat-magenta) 2.5px, transparent 3px),
+    linear-gradient(90deg, var(--pdmat-magenta), rgba(255, 47, 174, .5) 55%, var(--pdmat-magenta)) left center / calc(100% - 3px) 2px no-repeat;
+}
+.pdmat-slide .pdmat-hero__equals { margin-top: 20px; font-size: 90px; line-height: 70px; font-weight: 800; -webkit-text-stroke: 3px currentColor; }
+.pdmat-slide .pdmat-hero__result { margin-top: 23px; font-size: 94px; line-height: 83px; font-weight: 800; letter-spacing: -5.4px; color: var(--pdmat-magenta); white-space: pre-line; }
+
+/* ── 11 A.G.E.N.T.S. · Brand / Reveal v1 — Particle Horizon Reveal ─ */
+/* Approved reveal: centered wordmark over the horizon; six equal domain columns, no cards or hub. */
+.pdma2026-production .pdma-logical-canvas .pdma-title-11 { top: 304px; text-align: center; }
+.pdma2026-production .pdma-logical-canvas .pdma-title-11 h1,
+.pdma2026-production .pdma-logical-canvas .pdma-title-11 h1 span { color: #ff2fae; }
+.pdmat-slide.pdmat-slide--agents-reveal .pdmat-stage { --pdmat-title-gap: 236px; --pdmat-stage-inline: 36px; }
+.pdmat-slide .pdmat-reveal__domains { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.pdmat-slide .pdmat-reveal__domains > li { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.pdmat-slide .pdmat-reveal__domains > li + li { border-left: 2px solid rgba(255, 47, 174, .72); }
+.pdmat-slide .pdmat-reveal__initial { font-size: 77px; line-height: 77px; font-weight: 800; color: var(--pdmat-magenta); }
+.pdmat-slide .pdmat-reveal__name { min-height: 56px; margin-top: 2px; font-size: 23px; line-height: 28px; font-weight: 800; white-space: pre-line; }
+.pdmat-slide .pdmat-reveal__question { margin-top: 15px; font-size: 24.5px; line-height: 30px; color: #d9dade; white-space: pre-line; }
+
+/* ── 12 TURN THE FRAMEWORK INTO PRODUCT. · Translation / Traceability v1 ── */
+/* Approved composition: framework panel → six rails → transformation node → requirements panel. */
+.pdma2026-production .pdma-logical-canvas .pdma-title-12 { left: 94px; top: 122px; }
+.pdma2026-production .pdma-logical-canvas .pdma-title-12 .pdma-title-magenta-row { line-height: var(--title-leading); }
+.pdmat-slide.pdmat-slide--framework-to-product .pdmat-stage { --pdmat-title-gap: 33px; --pdmat-stage-bottom: 138px; --pdmat-stage-inline: 140px; }
+.pdmat-slide .pdmat-framework { display: grid; grid-template-columns: 639px minmax(0, 1fr) 817px; grid-template-rows: minmax(0, 1fr); }
+.pdmat-slide .pdmat-framework__panel { grid-row: 1; box-sizing: border-box; display: flex; flex-direction: column; min-height: 0; border-radius: 16px; }
+.pdmat-slide .pdmat-framework__panel h2 { box-sizing: border-box; height: var(--fw-head); padding-top: 32px; font-size: 26px; line-height: 26px; font-weight: 700; letter-spacing: 5.35px; white-space: nowrap; }
+.pdmat-slide .pdmat-framework__panel ol { display: grid; border-top: 1px solid rgba(242, 242, 245, .12); }
+.pdmat-slide .pdmat-framework__panel li { box-sizing: border-box; display: grid; align-items: center; border-bottom: 1px solid rgba(242, 242, 245, .12); }
+.pdmat-slide .pdmat-framework__panel li > b { box-sizing: border-box; display: grid; place-items: center; border-radius: 50%; font-weight: 800; }
+.pdmat-slide .pdmat-framework__panel--framework { grid-column: 1; padding: 0 43px 0 42px; border: 1.5px solid #3a3d43; background: rgba(15, 16, 19, .92); }
+.pdmat-slide .pdmat-framework__panel--framework ol { grid-template-rows: repeat(6, var(--fw-row)); }
+.pdmat-slide .pdmat-framework__panel--framework li { grid-template-columns: 66px minmax(0, 1fr); column-gap: 66px; }
+.pdmat-slide .pdmat-framework__panel--framework li > b { width: 66px; height: 66px; border: 2px solid rgba(242, 242, 245, .72); background: #0c0d10; box-shadow: 0 0 14px rgba(242, 242, 245, .16); font-size: 36px; }
+.pdmat-slide .pdmat-framework__panel--framework li > span { font-size: 31px; line-height: 40px; white-space: nowrap; }
+.pdmat-slide .pdmat-framework__rails { grid-column: 1 / 3; grid-row: 1; justify-self: end; align-self: start; width: var(--fw-rail); height: calc(var(--fw-head) + var(--fw-row) * 6); overflow: visible; }
+.pdmat-slide .pdmat-framework__rails path { fill: none; stroke: var(--pdmat-magenta); stroke-width: 2; stroke-linecap: round; opacity: .9; }
+.pdmat-slide .pdmat-framework__rails circle { fill: var(--pdmat-magenta); }
+.pdmat-slide .pdmat-framework__node circle { fill: #0c0a0d; stroke: var(--pdmat-magenta); stroke-width: 2.5; filter: drop-shadow(0 0 9px rgba(255, 47, 174, .75)); }
+.pdmat-slide .pdmat-framework__node path { stroke: var(--pdmat-white); stroke-width: 2.5; stroke-linejoin: round; opacity: 1; }
+.pdmat-slide .pdmat-framework__panel--requirements { grid-column: 3; padding: 0 22px; border: 2px solid var(--pdmat-magenta); background: rgba(14, 9, 13, .92); box-shadow: 0 0 24px rgba(255, 47, 174, .32), inset 0 0 20px rgba(255, 47, 174, .07); }
+.pdmat-slide .pdmat-framework__panel--requirements h2 { height: 78px; padding-left: 20px; letter-spacing: 8px; }
+.pdmat-slide .pdmat-framework__panel--requirements ol { grid-template-rows: repeat(6, 82px); }
+.pdmat-slide .pdmat-framework__panel--requirements li { grid-template-columns: 60px 20px minmax(0, 1fr); column-gap: 30px; padding: 0 20px; }
+.pdmat-slide .pdmat-framework__panel--requirements li:last-child { border-bottom: 0; }
+.pdmat-slide .pdmat-framework__panel--requirements li > b { width: 60px; height: 60px; border: 2px solid var(--pdmat-magenta); color: var(--pdmat-magenta); background: #120910; box-shadow: 0 0 12px rgba(255, 47, 174, .35); font-size: 32px; }
+.pdmat-slide .pdmat-framework__panel--requirements li > span { font-size: 22px; color: #d9dade; }
+.pdmat-slide .pdmat-framework__panel--requirements li > p { font-size: 23px; line-height: 27px; color: #e6e7ea; }
+
+/* ── 13 AN IDEA + AI ≠ PRODUCT SPEC. · approved v1 composition ──────── */
+.pdma2026-production .pdma-logical-canvas .pdma-title-13 { left: 150px; top: 142px; }
+.pdma2026-production .pdma-logical-canvas .pdma-title-13 p { letter-spacing: .55px; }
+.pdmat-slide.pdmat-slide--idea-to-spec .pdmat-stage { --pdmat-title-gap: 63px; --pdmat-stage-bottom: 145px; --pdmat-stage-inline: 152px; }
+.pdmat-slide .pdmat-spec { display: grid; grid-template-columns: 680px minmax(0, 1fr) 680px; grid-template-rows: 503px minmax(0, 1fr) auto; }
+.pdmat-slide .pdmat-spec__panel { grid-row: 1; box-sizing: border-box; display: flex; flex-direction: column; padding: 30px 40px 0 47px; border: 1.5px solid #3a3d43; border-radius: 16px; background: rgba(17, 19, 22, .9); }
+.pdmat-slide .pdmat-spec__panel--before { grid-column: 1; }
+.pdmat-slide .pdmat-spec__panel--after { grid-column: 3; border: 2px solid var(--pdmat-magenta); background: linear-gradient(160deg, rgba(40, 8, 30, .95), rgba(22, 6, 18, .95)); box-shadow: 0 0 26px rgba(255, 47, 174, .28), inset 0 0 22px rgba(255, 47, 174, .08); }
+.pdmat-slide .pdmat-spec__label { font-size: 16px; line-height: 24px; font-weight: 600; letter-spacing: 6px; color: var(--pdmat-muted); }
+.pdmat-slide .pdmat-spec__panel--after .pdmat-spec__label { color: var(--pdmat-magenta); }
+.pdmat-slide .pdmat-spec__title { margin-top: 20px; font-size: 40px; line-height: 48px; font-weight: 600; }
+.pdmat-slide .pdmat-spec__quote { margin-top: 8px; font-size: 26.5px; line-height: 36px; color: #cfd1d6; white-space: pre-line; }
+.pdmat-slide .pdmat-spec__panel--after .pdmat-spec__quote { margin-top: 4px; font-size: 24.4px; line-height: 31.5px; color: var(--pdmat-white); white-space: pre; }
+.pdmat-slide .pdmat-spec__panel--after .pdmat-spec__title { margin-top: 16px; }
+.pdmat-slide .pdmat-spec__panel--after .pdmat-spec__items { margin-top: 2px; }
+.pdmat-slide .pdmat-spec__rule { height: 1px; margin-top: 20px; background: rgba(242, 242, 245, .16); }
+.pdmat-slide .pdmat-spec__items { display: flex; flex-direction: column; margin-top: 16px; }
+.pdmat-slide .pdmat-spec__items li { display: flex; align-items: center; gap: 22px; height: 47.5px; font-size: 22px; color: #d6d8dc; }
+.pdmat-slide .pdmat-spec__panel--after .pdmat-spec__items li { color: var(--pdmat-white); }
+.pdma-logical-canvas .pdmat-slide .pdmat-spec__items img { width: 36px; height: 36px; flex: 0 0 36px; }
+.pdmat-slide .pdmat-spec__bridge { grid-column: 2; grid-row: 1; display: flex; flex-direction: column; align-items: center; padding-top: 130px; }
+.pdma-logical-canvas .pdmat-slide .pdmat-spec__bridge > img { width: 152px; height: 100px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(255, 47, 174, .6)); }
+.pdmat-slide .pdmat-spec__bridge > p { margin-top: 38px; font-size: 16px; line-height: 26px; font-weight: 600; letter-spacing: 5px; color: var(--pdmat-muted); text-align: center; white-space: pre; }
+.pdmat-slide .pdmat-spec__bridge > i { width: 60px; height: 3px; margin-top: 14px; border-radius: 2px; background: var(--pdmat-magenta); }
+.pdmat-slide .pdmat-spec__footer { grid-column: 1 / -1; grid-row: 3; display: flex; justify-content: space-between; align-items: flex-start; margin: 0 -62px 0 -45px; padding: 26px 2px 0 0; border-top: 2px solid #2c2f35; }
+.pdmat-slide .pdmat-spec__takeaway { min-height: 52px; align-self: stretch; }
+.pdmat-slide .pdmat-spec__takeaway .pdmat-takeaway__accent { flex-basis: 3px; margin-top: 2px; }
+.pdmat-slide .pdmat-spec__takeaway .pdmat-takeaway__text { align-self: flex-start; font-size: 29.4px; line-height: 40px; font-weight: 700; letter-spacing: 0; }
+.pdmat-slide .pdmat-spec__outcomes { display: flex; }
+.pdmat-slide .pdmat-spec__outcomes > li { display: flex; flex-direction: column; align-items: center; width: 180px; }
+.pdmat-slide .pdmat-spec__outcomes > li.has-divider { border-left: 1px solid var(--pdmat-line); }
+.pdmat-slide .pdmat-spec__outcomes strong { font-size: 22px; line-height: 28px; font-weight: 700; letter-spacing: .5px; color: var(--pdmat-magenta); }
+.pdmat-slide .pdmat-spec__outcomes span { margin-top: 2px; font-size: 16px; line-height: 22px; font-weight: 600; letter-spacing: 2.5px; color: var(--pdmat-muted); }

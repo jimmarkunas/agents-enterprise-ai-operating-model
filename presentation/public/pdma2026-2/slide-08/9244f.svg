@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Stage Icon / Prepare">
+<g id="Vector">
+<path d="M9 7V31ZM19 7V31ZM29 7V31Z" fill="black"/>
+<path d="M9 7V31M19 7V31M29 7V31" stroke="#F4F4F4" stroke-width="2"/>
+</g>
+<path id="Vector_2" d="M9 17C10.6569 17 12 15.6569 12 14C12 12.3431 10.6569 11 9 11C7.34315 11 6 12.3431 6 14C6 15.6569 7.34315 17 9 17Z" fill="#0A0A0A" stroke="#F4F4F4" stroke-width="2"/>
+<path id="Vector_3" d="M19 27C20.6569 27 22 25.6569 22 24C22 22.3431 20.6569 21 19 21C17.3431 21 16 22.3431 16 24C16 25.6569 17.3431 27 19 27Z" fill="#0A0A0A" stroke="#F4F4F4" stroke-width="2"/>
+<path id="Vector_4" d="M29 15C30.6569 15 32 13.6569 32 12C32 10.3431 30.6569 9 29 9C27.3431 9 26 10.3431 26 12C26 13.6569 27.3431 15 29 15Z" fill="#0A0A0A" stroke="#F4F4F4" stroke-width="2"/>
+</g>
+</svg>
