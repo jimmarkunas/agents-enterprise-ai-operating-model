@@ -60,3 +60,15 @@ Public adoption reports help show how the system is being used and improved.
 The AGENTS Enterprise AI Operating Model is released under Creative Commons Attribution 4.0 International.
 
 The Inter font package is distributed under the SIL Open Font License 1.1. See the license and provenance files included inside the template kit.
+
+---
+
+## Webcast presentation — portable React edition
+
+A self-hostable 16-slide presentation and interactive productization exercise have their own source in [presentation/](./presentation/).
+
+- [Play on GitHub Pages](https://jimmarkunas.github.io/agents-enterprise-ai-operating-model/) (when Pages is enabled and deployed)
+- [Download offline browser ZIP or Windows .exe](https://github.com/jimmarkunas/agents-enterprise-ai-operating-model/releases/latest) (when packaging completes)
+- [Source and host/fork instructions](./presentation/README.md)
+
+A fork is evidence that a GitHub account copied this repository. Do **not** claim PDMA adoption, endorsement, or production deployment until independently documented.

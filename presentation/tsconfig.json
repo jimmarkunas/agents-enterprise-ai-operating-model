@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx", "module": "ESNext", "moduleResolution": "Bundler",
+    "skipLibCheck": true, "esModuleInterop": true, "allowSyntheticDefaultImports": true,
+    "strict": false, "noEmit": true, "baseUrl": ".", "paths": { "@/*": ["src/*"] }
+  },
+  "include": ["src/main.tsx", "src/App.tsx", "vite.config.ts"]
+}
