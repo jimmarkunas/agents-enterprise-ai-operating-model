@@ -79,10 +79,13 @@ try {
   // an arbitrary website folder, file:// from a ZIP, and inside Electron.
   for (const file of walk(target("src")).filter(f => /\.(tsx?|jsx?|css)$/.test(f))) {
     let content = fs.readFileSync(file, "utf8");
-    content = content.replaceAll("/pdma2026-templates-lab/", "./pdma2026-templates-lab/")
-      .replaceAll("/pdma2026-templates/", "./pdma2026-templates/")
-      .replaceAll("/pdma2026-2/", "./pdma2026-2/")
-      .replaceAll("/pdma2026/", "./pdma2026-2/");
+    // Rewrite only root-relative asset URLs: never mutate "./app/pdma2026-2/" source imports.
+    for (const assetPath of ["pdma2026-templates-lab", "pdma2026-templates", "pdma2026-2", "pdma2026"]) {
+      const mapped = assetPath === "pdma2026" ? "pdma2026-2" : assetPath;
+      for (const marker of ['"', "'", String.fromCharCode(96), "("]) {
+        content = content.replaceAll(marker + "/" + assetPath + "/", marker + "./" + mapped + "/");
+      }
+    }
     content = content.replace('export const PDMA_EXERCISE_ROUTE = "./pdma2026-2/exercise";', 'export const PDMA_EXERCISE_ROUTE = "#exercise";');
     content = content.replace('export const PDMA_EXERCISE_ROUTE = "/pdma2026/exercise";', 'export const PDMA_EXERCISE_ROUTE = "#exercise";');
     fs.writeFileSync(file, content);
