@@ -63,12 +63,12 @@ The Inter font package is distributed under the SIL Open Font License 1.1. See t
 
 ---
 
-## Webcast presentation — portable React edition
+## Webcast presentation: The New PM Operating System (PDMA Innovation in Focus)
 
-A self-hostable 16-slide presentation and interactive productization exercise have their own source in [presentation/](./presentation/).
+The 16-slide webcast and its live productization exercise are a React app in [presentation/](./presentation/), built into a single self-contained HTML file in PDMA's Innovation in Focus brand.
 
-- [Play on GitHub Pages](https://jimmarkunas.github.io/agents-enterprise-ai-operating-model/) (when Pages is enabled and deployed)
-- [Download offline browser ZIP or Windows .exe](https://github.com/jimmarkunas/agents-enterprise-ai-operating-model/releases/latest) (when packaging completes)
-- [Source and host/fork instructions](./presentation/README.md)
+- [Present on GitHub Pages](https://jimmarkunas.github.io/agents-enterprise-ai-operating-model/)
+- [Download the offline HTML and the PDMA edition leave-behind (PDF, DOCX)](https://github.com/jimmarkunas/agents-enterprise-ai-operating-model/releases/tag/pdma-webcast-v1)
+- [Source, and how to fork and host your own copy](./presentation/README.md)
 
 A fork is evidence that a GitHub account copied this repository. Do **not** claim PDMA adoption, endorsement, or production deployment until independently documented.

@@ -1,35 +1,38 @@
-# PDMA 2026-2 — Portable presentation
+# The New PM Operating System: PDMA webcast app
 
-**Status:** React migration scaffold. The presentation is a forkable, self-hostable copy of Jim Markunas's 16-slide *The New PM Operating System* PDMA webcast, including the interactive productization exercise.
+Jim Markunas's PDMA *Innovation in Focus* webcast (Nov 19, 2026), built as an app instead of a slide deck: 16 slides plus the live **Customer Order Exception Agent** productization exercise on slide 15, in PDMA's Innovation in Focus brand.
 
-## Launch and download
+## Present it
 
-- **Play in a browser:** [GitHub Pages](https://jimmarkunas.github.io/agents-enterprise-ai-operating-model/) (available after the Pages workflow succeeds and GitHub Pages is enabled).
-- **Download for offline Windows:** [Releases](https://github.com/jimmarkunas/agents-enterprise-ai-operating-model/releases/latest) (portable unsigned `.exe`).
-- **Double-click without installing:** Download the offline ZIP from Releases, extract it, then open `index.html` in a modern browser. Keep the folders with it. The JavaScript and CSS are inlined in the HTML.
+- **Online:** https://jimmarkunas.github.io/agents-enterprise-ai-operating-model/
+- **Offline:** download `PDMA-Webcast-The-New-PM-Operating-System.html` from the [release](https://github.com/jimmarkunas/agents-enterprise-ai-operating-model/releases/tag/pdma-webcast-v1) and double-click it. It is one HTML file with every font, image and script inside it. It makes no network requests and has nothing to install, so macOS Gatekeeper and Windows SmartScreen have nothing to block.
 
-The Windows `.exe` is an **Electron-packaged React application**, not a raw .jsx/.js file; it does not require Node.js, your portfolio website, or a local dev server. It is unsigned; Windows SmartScreen may warn on first launch.
+Controls: → / ← / Space / PageUp / PageDown (presenter clickers work), Home / End, **F** for full screen. `#7` in the URL opens slide 7. Keys pressed inside the exercise stay in the exercise.
 
-## Fork / independent deployment
+## Host your own copy (fork)
 
-Fork this GitHub repository into an organization-controlled account. The React source, runtime assets, and build instructions are vendored in `presentation/` and are designed to build without access to Jim's website. A fork can run `cd presentation && npm install && npm run build` and host the contents of `dist/` at any static website path. The same build can be viewed offline by double-clicking `dist/index.html`.
+1. Fork this repository.
+2. In the fork: **Settings → Pages → Source: GitHub Actions**.
+3. Run the **PDMA Webcast Presentation** workflow (Actions tab), or push any change under `presentation/`.
 
-The pinned-source importer is a **one-time provenance tool**. Its output is checked into this repository; forked builds do not invoke it and do not need the original repository. To produce a new variant, edit the vendored React and CSS directly.
+Your fork's Pages URL then serves the presentation. No local tooling is required. Any static host also works: upload the single built `index.html`.
 
-## Presentation content and branding
-
-This first migration preserves the original PBDS visual treatment. **The requested PDMA brand redesign and PDMA-branded leave-behind are not yet implemented.** They will be separate edits against this independent app. Do not present the current design as PDMA-approved.
-
-The slide content and A.G.E.N.T.S. framework remain attributable to Jim Markunas. PDMA is not claimed as an adopter or endorser merely because a fork is offered. A PDMA-owned fork, if created by PDMA, may support a factual fork statement; evidence of actual use requires separate confirmation.
-
-## Development
+## Develop
 
 ```sh
-cd presentation
-npm install
-npm run dev
-npm run build
-npm run package:windows    # Windows host recommended
+npm ci
+npm run dev      # http://127.0.0.1:5173
+npm run build    # typecheck → dist/index.html → scripts/verify-build.mjs
 ```
 
-No deployment, backend service, portfolio API, or web request is needed to present the local slides; external follow-up links intentionally open online when clicked. Verify browser rendering, all 16 slides, and exercise interaction before claiming visual or functional parity.
+`verify-build.mjs` fails the build if the output is more than one file, references anything external, lacks the offline Content-Security-Policy, or exceeds the **1 MB budget**.
+
+| Path | What |
+|---|---|
+| `src/slides/Slides.tsx` | All 16 slides: copy and layout |
+| `src/slides/slides.css` | Slide layouts on the 1920×1080 canvas |
+| `src/brand/` | PDMA tokens, Poppins (OFL), logo, geometric background |
+| `src/exercise/` | The productization exercise (logic unchanged from the portfolio `/pdma2026` edition; PDMA skin) |
+| `scripts/brand-leave-behind.py` | Rebuilds the PDMA edition DOCX from the original: `python3 scripts/brand-leave-behind.py "../Free Toolkit Download/AGENTS-Enterprise-Model.docx" src/brand/pdma-logo.png out.docx`, then convert to PDF with LibreOffice |
+
+Slide copy comes from Jim Markunas's `/pdma2026` production deck. The A.G.E.N.T.S. framework is attributable to Jim Markunas. Use of the PDMA mark follows PDMA's speaker template for this webcast; it does not imply PDMA endorsement of the framework.

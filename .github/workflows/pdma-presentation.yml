@@ -1,135 +1,83 @@
-name: PDMA Standalone Presentation
+name: PDMA Webcast Presentation
 on:
   push:
     branches: [main]
+    paths:
+      - "presentation/**"
+      - "Free Toolkit Download/PDMA Edition/**"
+      - ".github/workflows/pdma-presentation.yml"
+  pull_request:
     paths:
       - "presentation/**"
       - ".github/workflows/pdma-presentation.yml"
   workflow_dispatch:
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: read
 
 concurrency:
-  group: pdma-presentation-publish
+  group: pdma-presentation-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
-  build-web:
+  build:
     runs-on: ubuntu-latest
-    outputs:
-      source_commit: ${{ steps.source.outputs.commit }}
+    defaults:
+      run:
+        working-directory: presentation
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: main
-          persist-credentials: true
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Vendor the SHA-pinned source on initial migration
-        if: ${{ hashFiles('presentation/src/app/pdma2026-2/presentation/Pdma2026Presentation.tsx') == '' }}
-        run: |
-          cd presentation
-          npm run import:source
-      - name: Install, build, and verify the portable web app
-        run: |
-          cd presentation
-          ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install --no-audit --no-fund
-          npm run build
-          test -s dist/index.html
-          test -f dist/pdma2026-2/slide-01/canonical-asterisk.svg
-          test -f dist/pdma2026-templates/assets/end-card/end-card-electric-orb-right-v1.png
-          grep -q '<script' dist/index.html
-          test $(find dist/pdma2026-2 -type f | wc -l) -ge 100
-          (cd dist && zip -q -r ../PDMA-Webcast-Offline.zip .)
-      - name: Commit the portable source and lockfile
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add presentation/src presentation/public presentation/package-lock.json
-          if ! git diff --cached --quiet; then
-            git commit -m "Vendor independent PDMA presentation source and assets"
-            git push origin HEAD:main
-          fi
-      - name: Capture exact portable source commit
-        id: source
-        run: echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-      - uses: actions/upload-artifact@v4
-        with:
-          name: pdma-web-build
-          path: presentation/dist/
-          if-no-files-found: error
-      - uses: actions/upload-artifact@v4
-        with:
-          name: pdma-offline-download
-          path: presentation/PDMA-Webcast-Offline.zip
-          if-no-files-found: error
+          cache: npm
+          cache-dependency-path: presentation/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      # Typecheck, build one self-contained index.html, then fail on any external
+      # reference or a file over the 1 MB budget (scripts/verify-build.mjs).
+      - run: npm run build
       - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
         with:
           path: presentation/dist/
 
   deploy-pages:
-    needs: build-web
+    if: github.event_name != 'pull_request'
+    needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4
 
-  build-windows:
-    needs: build-web
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: main
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-      - uses: actions/download-artifact@v4
-        with:
-          name: pdma-web-build
-          path: presentation/dist
-      - name: Package a portable unsigned Windows .exe
-        shell: pwsh
-        run: |
-          cd presentation
-          npm install --no-audit --no-fund
-          npm run package:windows
-          if (-not (Test-Path "release/PDMA-Webcast-Portable-Windows.exe")) { throw "Windows portable EXE missing" }
-      - uses: actions/upload-artifact@v4
-        with:
-          name: pdma-windows-portable
-          path: presentation/release/PDMA-Webcast-Portable-Windows.exe
-          if-no-files-found: error
-
   release:
-    needs: [build-web, build-windows]
+    if: github.event_name != 'pull_request'
+    needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: main
       - uses: actions/download-artifact@v4
         with:
-          name: pdma-offline-download
-          path: release-assets
-      - uses: actions/download-artifact@v4
-        with:
-          name: pdma-windows-portable
-          path: release-assets
-      - name: Publish downloadable portable presentation
+          name: github-pages
+          path: pages
+      - name: Attach the offline presentation and PDMA leave-behind
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          tag="pdma2026-2-v0.1.0"
+          mkdir -p assets
+          tar -xf pages/artifact.tar -C assets
+          mv assets/index.html "assets/PDMA-Webcast-The-New-PM-Operating-System.html"
+          cp "Free Toolkit Download/PDMA Edition/AGENTS-Enterprise-Model-PDMA.pdf" "Free Toolkit Download/PDMA Edition/AGENTS-Enterprise-Model-PDMA.docx" assets/
+          tag="pdma-webcast-v1"
           if ! gh release view "$tag" >/dev/null 2>&1; then
-            gh release create "$tag" --target main --title "PDMA 2026-2 Portable Presentation" --notes "Portable Windows executable and offline browser ZIP. SHA-pinned vendored React source. This initial edition retains the original visual treatment; PDMA branding has not yet been applied."
+            gh release create "$tag" --target "$GITHUB_SHA" --title "PDMA Webcast · The New PM Operating System" \
+              --notes "Single-file presentation (open the .html in any modern browser; no install, works offline) and the PDMA edition of the A.G.E.N.T.S. leave-behind. Hosted version: https://jimmarkunas.github.io/agents-enterprise-ai-operating-model/"
           fi
-          gh release upload "$tag" release-assets/PDMA-Webcast-Offline.zip release-assets/PDMA-Webcast-Portable-Windows.exe --clobber
+          gh release upload "$tag" assets/*.html assets/*.pdf assets/*.docx --clobber

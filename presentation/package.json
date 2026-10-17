@@ -1,53 +1,27 @@
 {
-  "name": "pdma2026-2-standalone",
-  "version": "0.1.0",
+  "name": "pdma-webcast-presentation",
+  "version": "1.0.0",
   "private": true,
-  "description": "Portable React edition of The New PM Operating System webcast",
-  "main": "electron/main.cjs",
+  "type": "module",
+  "description": "The New PM Operating System: a PDMA Innovation in Focus webcast, built as a single-file React app",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "vite build",
-    "preview": "vite preview",
-    "import:source": "node scripts/import-vendor.mjs",
-    "package:windows": "electron-builder --win portable --publish never"
+    "typecheck": "tsc --noEmit",
+    "build": "tsc --noEmit && vite build && node scripts/verify-build.mjs",
+    "preview": "vite preview"
   },
   "dependencies": {
     "lucide-react": "0.469.0",
-    "motion": "12.36.0",
+    "qrcode-generator": "1.4.4",
     "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "three": "0.186.1"
+    "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.4",
-    "@types/react": "^18.3.18",
-    "@types/react-dom": "^18.3.5",
-    "electron": "^33.4.11",
-    "electron-builder": "^25.1.8",
-    "typescript": "^5.7.3",
-    "vite": "^5.4.15",
-    "vite-plugin-singlefile": "^2.2.0",
-    "tailwindcss": "^3.4.17",
-    "postcss": "^8.4.49",
-    "autoprefixer": "^10.4.20"
-  },
-  "build": {
-    "appId": "com.jimmarkunas.pdmawebcast",
-    "productName": "PDMA Webcast Presentation",
-    "artifactName": "PDMA-Webcast-Portable-Windows.${ext}",
-    "directories": {
-      "output": "release"
-    },
-    "files": [
-      "dist/**/*",
-      "electron/main.cjs",
-      "package.json"
-    ],
-    "win": {
-      "target": [
-        "portable"
-      ]
-    },
-    "asar": true
+    "@types/react": "18.3.18",
+    "@types/react-dom": "18.3.5",
+    "@vitejs/plugin-react": "4.3.4",
+    "typescript": "5.7.3",
+    "vite": "5.4.15",
+    "vite-plugin-singlefile": "2.2.0"
   }
 }
