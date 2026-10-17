@@ -5,7 +5,7 @@ Jim Markunas's PDMA *Innovation in Focus* webcast (Nov 19, 2026), built as an ap
 ## Present it
 
 - **Online:** https://jimmarkunas.github.io/agents-enterprise-ai-operating-model/
-- **Offline:** download `PDMA-Webcast-The-New-PM-Operating-System.html` from the [release](https://github.com/jimmarkunas/agents-enterprise-ai-operating-model/releases/tag/pdma-webcast-v1) and double-click it. It is one HTML file with every font, image and script inside it. It makes no network requests and has nothing to install, so macOS Gatekeeper and Windows SmartScreen have nothing to block.
+- **Offline:** download [`PDMA-Webcast-Kit.zip`](../Free%20Toolkit%20Download/PDMA%20Edition/PDMA-Webcast-Kit.zip) (presentation + leave-behind PDF and DOCX), or just `PDMA-Webcast-The-New-PM-Operating-System.html` from [Free Toolkit Download/PDMA Edition](../Free%20Toolkit%20Download/PDMA%20Edition/) or the [release](https://github.com/jimmarkunas/agents-enterprise-ai-operating-model/releases/tag/pdma-webcast-v1), and double-click the HTML. It is one HTML file with every font, image and script inside it. It makes no network requests and has nothing to install, so macOS Gatekeeper and Windows SmartScreen have nothing to block.
 
 Controls: → / ← / Space / PageUp / PageDown (presenter clickers work), Home / End, **F** for full screen. `#7` in the URL opens slide 7. Keys pressed inside the exercise stay in the exercise.
 
@@ -23,7 +23,10 @@ Your fork's Pages URL then serves the presentation. No local tooling is required
 npm ci
 npm run dev      # http://127.0.0.1:5173
 npm run build    # typecheck → dist/index.html → scripts/verify-build.mjs
+python3 scripts/package-downloads.py   # refresh the HTML + ZIP in "Free Toolkit Download/PDMA Edition/"
 ```
+
+Commit the refreshed downloads with any source change: CI rebuilds them and fails if the committed copies differ.
 
 `verify-build.mjs` fails the build if the output is more than one file, references anything external, lacks the offline Content-Security-Policy, or exceeds the **1 MB budget**.
 

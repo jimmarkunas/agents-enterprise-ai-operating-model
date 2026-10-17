@@ -9,6 +9,7 @@ on:
   pull_request:
     paths:
       - "presentation/**"
+      - "Free Toolkit Download/PDMA Edition/**"
       - ".github/workflows/pdma-presentation.yml"
   workflow_dispatch:
 
@@ -36,6 +37,12 @@ jobs:
       # Typecheck, build one self-contained index.html, then fail on any external
       # reference or a file over the 1 MB budget (scripts/verify-build.mjs).
       - run: npm run build
+      # The committed downloads must be exactly what this source builds (the build and ZIP are reproducible).
+      - name: Check committed downloads are current
+        run: |
+          python3 -I scripts/package-downloads.py
+          git diff --exit-code -- "../Free Toolkit Download/PDMA Edition/" \
+            || { echo "::error::Downloads are stale. Run: npm run build && python3 scripts/package-downloads.py, then commit."; exit 1; }
       - uses: actions/upload-pages-artifact@v3
         if: github.event_name != 'pull_request'
         with:
@@ -63,21 +70,14 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
-        with:
-          name: github-pages
-          path: pages
-      - name: Attach the offline presentation and PDMA leave-behind
+      - name: Attach the downloadable presentation, leave-behind and ZIP
         env:
           GH_TOKEN: ${{ github.token }}
+        working-directory: Free Toolkit Download/PDMA Edition
         run: |
-          mkdir -p assets
-          tar -xf pages/artifact.tar -C assets
-          mv assets/index.html "assets/PDMA-Webcast-The-New-PM-Operating-System.html"
-          cp "Free Toolkit Download/PDMA Edition/AGENTS-Enterprise-Model-PDMA.pdf" "Free Toolkit Download/PDMA Edition/AGENTS-Enterprise-Model-PDMA.docx" assets/
           tag="pdma-webcast-v1"
           if ! gh release view "$tag" >/dev/null 2>&1; then
             gh release create "$tag" --target "$GITHUB_SHA" --title "PDMA Webcast · The New PM Operating System" \
-              --notes "Single-file presentation (open the .html in any modern browser; no install, works offline) and the PDMA edition of the A.G.E.N.T.S. leave-behind. Hosted version: https://jimmarkunas.github.io/agents-enterprise-ai-operating-model/"
+              --notes "PDMA-Webcast-Kit.zip has everything. Or download the presentation (.html: open in any modern browser, no install, works offline) and the PDMA edition A.G.E.N.T.S. leave-behind (.pdf, .docx) individually. Hosted version: https://jimmarkunas.github.io/agents-enterprise-ai-operating-model/"
           fi
-          gh release upload "$tag" assets/*.html assets/*.pdf assets/*.docx --clobber
+          gh release upload "$tag" PDMA-Webcast-The-New-PM-Operating-System.html AGENTS-Enterprise-Model-PDMA.pdf AGENTS-Enterprise-Model-PDMA.docx PDMA-Webcast-Kit.zip --clobber

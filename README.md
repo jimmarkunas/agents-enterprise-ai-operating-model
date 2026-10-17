@@ -68,7 +68,7 @@ The Inter font package is distributed under the SIL Open Font License 1.1. See t
 The 16-slide webcast and its live productization exercise are a React app in [presentation/](./presentation/), built into a single self-contained HTML file in PDMA's Innovation in Focus brand.
 
 - [Present on GitHub Pages](https://jimmarkunas.github.io/agents-enterprise-ai-operating-model/)
-- [Download the offline HTML and the PDMA edition leave-behind (PDF, DOCX)](https://github.com/jimmarkunas/agents-enterprise-ai-operating-model/releases/tag/pdma-webcast-v1)
+- Download: [everything as one ZIP](./Free%20Toolkit%20Download/PDMA%20Edition/PDMA-Webcast-Kit.zip), or individually from [Free Toolkit Download/PDMA Edition](./Free%20Toolkit%20Download/PDMA%20Edition/): the presentation (.html, opens offline in any browser) and the PDMA edition leave-behind (.pdf, .docx). Also attached to the [release](https://github.com/jimmarkunas/agents-enterprise-ai-operating-model/releases/tag/pdma-webcast-v1).
 - [Source, and how to fork and host your own copy](./presentation/README.md)
 
 A fork is evidence that a GitHub account copied this repository. Do **not** claim PDMA adoption, endorsement, or production deployment until independently documented.
