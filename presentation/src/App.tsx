@@ -47,7 +47,9 @@ export default function App() {
       if ((event.target as HTMLElement | null)?.closest?.(".pdmax")) return;
       const forward = ["ArrowRight", "ArrowDown", "PageDown", " ", "Enter"];
       const back = ["ArrowLeft", "ArrowUp", "PageUp", "Backspace"];
-      if (forward.includes(event.key) && !(event.target instanceof HTMLButtonElement || event.target instanceof HTMLAnchorElement)) { event.preventDefault(); setIndex((i) => Math.min(slides.length - 1, i + 1)); }
+      // Enter and Space activate a focused link or button; arrows and clicker keys always change slides.
+      const activates = (event.key === " " || event.key === "Enter") && (event.target instanceof HTMLButtonElement || event.target instanceof HTMLAnchorElement);
+      if (forward.includes(event.key) && !activates) { event.preventDefault(); setIndex((i) => Math.min(slides.length - 1, i + 1)); }
       else if (back.includes(event.key)) { event.preventDefault(); setIndex((i) => Math.max(0, i - 1)); }
       else if (event.key === "Home") setIndex(0);
       else if (event.key === "End") setIndex(slides.length - 1);

@@ -40,16 +40,23 @@ function IconBadge({ icon: Icon, tone = "blue" }: { icon: LucideIcon; tone?: "bl
 
 export const slides: SlideDefinition[] = [
   // PDMA intro slides, supplied by PDMA for the Nov 19, 2026 webcast (rendered from PDMA-Webcast-Intro-Slides-2026-11-19.pptx).
+  // Links printed on PDMA's slides are made clickable with hotspots placed over them (1920×1080 pixels).
   ...([
-    [intro1, "PDMA welcome: we will begin shortly"],
-    [intro2, "PDMA: Connecting Innovators Worldwide"],
-    [intro3, "PDMA: Learn, Apply, Grow"],
-    [intro4, "Engage with PDMA"],
-    [intro5, "PDMA speaker introduction"],
-  ] as const).map(([src, title]): SlideDefinition => ({
+    [intro1, "PDMA welcome: we will begin shortly", [{ href: "https://www.pdma.org/page/upcoming-events", label: "View upcoming PDMA events", box: [1490, 578, 386, 98] }]],
+    [intro2, "PDMA: Connecting Innovators Worldwide", []],
+    [intro3, "PDMA: Learn, Apply, Grow", []],
+    [intro4, "Engage with PDMA", [
+      { href: "https://www.pdma.org/page/join_renew", label: "Join PDMA at pdma.org", box: [478, 910, 810, 120] },
+      { href: "https://www.pdma.org/page/join_renew", label: "Join PDMA (QR code)", box: [1355, 883, 148, 148] },
+    ]],
+    [intro5, "PDMA speaker introduction", []],
+  ] as const).map(([src, title, links]): SlideDefinition => ({
     title,
     layout: "intro",
-    render: () => <img className="intro-slide" src={src} alt={title} />,
+    render: () => <>
+      <img className="intro-slide" src={src} alt={title} />
+      {links.map(({ href, label, box: [left, top, width, height] }) => <a key={label} className="intro-link" href={href} target="_blank" rel="noopener noreferrer" aria-label={label} style={{ left, top, width, height }} />)}
+    </>,
   })),
   // 01 — Title
   {
