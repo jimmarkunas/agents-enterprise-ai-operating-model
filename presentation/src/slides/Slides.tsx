@@ -70,7 +70,7 @@ export const slides: SlideDefinition[] = [
       </div>
       <div className="s01__speaker">
         <p className="s01__name">Jim Markunas</p>
-        <p className="s01__role">Head of Product, Bytalos</p>
+        <p className="s01__role">Senior Product Leader, Bytalos</p>
       </div>
       <p className="s01__note">HUMAN JUDGMENT COMPOUNDS</p>
     </div>,
@@ -414,7 +414,7 @@ export const slides: SlideDefinition[] = [
           <a className="s16__qr" href={KIT_URL} target="_blank" rel="noopener noreferrer" aria-label="Open the A.G.E.N.T.S. Enterprise AI Operating Model repository on GitHub"><QrCode value={KIT_URL} /></a>
         </section>
       </div>
-      <p className="s16__thanks">THANK YOU · <b>QUESTIONS?</b> <span>Jim Markunas · Head of Product, Bytalos</span></p>
+      <p className="s16__thanks">THANK YOU · <b>QUESTIONS?</b> <span>Jim Markunas · Senior Product Leader, Bytalos</span></p>
     </div>,
   },
 ];
