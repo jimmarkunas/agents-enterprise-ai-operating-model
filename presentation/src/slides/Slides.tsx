@@ -304,7 +304,36 @@ export const slides: SlideDefinition[] = [
       </div>
     </div>,
   },
-  // 14 — Now you do it
+  // 14 — The Hype Gap
+  {
+    title: "Mind the Hype Gap.",
+    footer: "Measure realized value, not promised value",
+    layout: "content",
+    render: () => <div className="s14h">
+      <Title lead="MIND THE" accent="HYPE GAP." sub="The share of an AI initiative’s promised value that never shows up. Measure it before your board does." sameRow />
+      <p className="s14h__formula"><small>HYPE GAP</small> = 1 − ( <b>REALIZED VALUE</b> ÷ <b>PROMISED VALUE</b> )</p>
+      <div className="s14h__grid">
+        <section className="panel panel--white s14h__col">
+          <small className="s14h__tag">GUT</small>
+          <h2>Cut people. Promise savings.</h2>
+          <ul>
+            <li><h3>KLARNA</h3><p>2024: AI assistant “doing the work of 700 agents,” $40M profit improvement promised. 2025: hiring humans again. CEO: cost-first service led to “lower quality.”</p></li>
+            <li><h3>COMMONWEALTH BANK</h3><p>Replaced 45 call-centre roles with an AI voice bot. Reversed the cuts weeks later and admitted an “error.”</p></li>
+          </ul>
+        </section>
+        <section className="panel panel--blue s14h__col">
+          <small className="s14h__tag">GROW · SAVE · SCALE</small>
+          <h2>Create value. Keep people.</h2>
+          <ul>
+            <li><h3>UPS ORION <em>SAVE</em></h3><p>AI route optimization: $300–400M saved per year and ~10M fewer gallons of fuel, on a ~$250M build.</p></li>
+            <li><h3>WILLIAMS-SONOMA <em>GROW</em></h3><p>An AI-personalized web visit now generates ~9× the revenue of an average visit, up from 2× a year earlier.</p></li>
+          </ul>
+        </section>
+      </div>
+      <Takeaway>DON’T GUT IT. <b>GROW IT.</b> <span className="takeaway__aside">SUCCESS IS THE S IN A.G.E.N.T.S.</span></Takeaway>
+    </div>,
+  },
+  // 15 — Now you do it
   {
     title: "Now you do it.",
     footer: "Useful PM artifact • Not just a quiz result",
@@ -318,7 +347,7 @@ export const slides: SlideDefinition[] = [
           ["03", "A.G.E.N.T.S.", "Define controls, evidence, systems, transfer, and success."],
           ["04", "OUTPUT", "Generate a mini productization brief / backlog-ready artifact."],
         ].map(([n, t, b], i) => <li key={n} className={i === 3 ? "is-emphasis" : ""}><span className="num">{n}</span><div><h2>{t}</h2><p>{b}</p></div></li>)}</ol>
-        <button type="button" className="s14__sheet" onClick={() => go(14)} aria-label="Open the live productization exercise on the next slide">
+        <button type="button" className="s14__sheet" onClick={() => go(15)} aria-label="Open the live productization exercise on the next slide">
           <span className="s14__sheet-head"><small>AI INITIATIVE</small><small>CONFIDENTIAL • DRAFT</small></span>
           <strong>PRODUCTIZATION BRIEF</strong>
           {["OPPORTUNITY", "VALUE", "AUTHORITY", "A.G.E.N.T.S.", "OUTPUT", "NEXT STEPS"].map((f) => <span key={f} className="s14__field"><small>{f}</small><i /></span>)}
@@ -328,7 +357,7 @@ export const slides: SlideDefinition[] = [
       <Takeaway tone="lime">ARE YOU READY TO <b>PRODUCTIZE YOUR AI?</b></Takeaway>
     </div>,
   },
-  // 15 — Embedded exercise
+  // 16 — Embedded exercise
   {
     title: "Embedded apps. Real work.",
     footer: "Useful PM artifact • Not just a quiz result",
@@ -341,7 +370,7 @@ export const slides: SlideDefinition[] = [
       </section>
     </div>,
   },
-  // 16 — End card
+  // 17 — End card
   {
     title: "Turn AI capability into product value.",
     footer: "Never automate away accountability",
