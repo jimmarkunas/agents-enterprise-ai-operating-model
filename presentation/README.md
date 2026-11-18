@@ -37,5 +37,6 @@ Commit the refreshed downloads with any source change: CI rebuilds them and fail
 | `src/brand/` | PDMA tokens, Poppins (OFL), logo, geometric background |
 | `src/exercise/` | The productization exercise (logic unchanged from the portfolio `/pdma2026` edition; PDMA skin) |
 | `scripts/brand-leave-behind.py` | Rebuilds the PDMA edition DOCX from the original: `python3 scripts/brand-leave-behind.py "../Free Toolkit Download/AGENTS-Enterprise-Model.docx" src/brand/pdma-logo.png out.docx`, then convert to PDF with LibreOffice |
+| `scripts/add-hype-gap-page.py` | Run after the branding step to add the one-page Hype Gap worksheet after S: Success & Accountability (page 18): `python3 scripts/add-hype-gap-page.py out.docx final.docx`, then convert to PDF with LibreOffice |
 
 Slide copy comes from Jim Markunas's `/pdma2026` production deck. The A.G.E.N.T.S. framework is attributable to Jim Markunas. Use of the PDMA mark follows PDMA's speaker template for this webcast; it does not imply PDMA endorsement of the framework.
