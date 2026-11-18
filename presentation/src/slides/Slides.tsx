@@ -6,6 +6,11 @@ import {
 } from "lucide-react";
 import { PdmaScenarioExercise } from "../exercise/PdmaScenarioExercise";
 import { QrCode } from "./QrCode";
+import intro1 from "../brand/intro/intro-1.webp";
+import intro2 from "../brand/intro/intro-2.webp";
+import intro3 from "../brand/intro/intro-3.webp";
+import intro4 from "../brand/intro/intro-4.webp";
+import intro5 from "../brand/intro/intro-5.webp";
 
 /*
  * Copy is carried over from Jim Markunas's /pdma2026 production deck (portfolio repository,
@@ -16,7 +21,7 @@ import { QrCode } from "./QrCode";
 export const KIT_URL = "https://github.com/jimmarkunas/agents-enterprise-ai-operating-model";
 
 type SlideApi = { go: (index: number) => void };
-export type SlideDefinition = { title: string; footer?: string; layout: "band" | "content"; render: (api: SlideApi) => ReactNode };
+export type SlideDefinition = { title: string; footer?: string; layout: "band" | "content" | "intro"; render: (api: SlideApi) => ReactNode };
 
 function Title({ lead, accent, sub, sameRow = false }: { lead: string; accent: string; sub?: string; sameRow?: boolean }) {
   return <header className={`title${sameRow ? " title--row" : ""}`}>
@@ -34,6 +39,18 @@ function IconBadge({ icon: Icon, tone = "blue" }: { icon: LucideIcon; tone?: "bl
 }
 
 export const slides: SlideDefinition[] = [
+  // PDMA intro slides, supplied by PDMA for the Nov 19, 2026 webcast (rendered from PDMA-Webcast-Intro-Slides-2026-11-19.pptx).
+  ...([
+    [intro1, "PDMA welcome: we will begin shortly"],
+    [intro2, "PDMA: Connecting Innovators Worldwide"],
+    [intro3, "PDMA: Learn, Apply, Grow"],
+    [intro4, "Engage with PDMA"],
+    [intro5, "PDMA speaker introduction"],
+  ] as const).map(([src, title]): SlideDefinition => ({
+    title,
+    layout: "intro",
+    render: () => <img className="intro-slide" src={src} alt={title} />,
+  })),
   // 01 — Title
   {
     title: "The New PM Operating System",
@@ -347,7 +364,7 @@ export const slides: SlideDefinition[] = [
           ["03", "A.G.E.N.T.S.", "Define controls, evidence, systems, transfer, and success."],
           ["04", "OUTPUT", "Generate a mini productization brief / backlog-ready artifact."],
         ].map(([n, t, b], i) => <li key={n} className={i === 3 ? "is-emphasis" : ""}><span className="num">{n}</span><div><h2>{t}</h2><p>{b}</p></div></li>)}</ol>
-        <button type="button" className="s14__sheet" onClick={() => go(15)} aria-label="Open the live productization exercise on the next slide">
+        <button type="button" className="s14__sheet" onClick={() => go(slides.findIndex((slide) => slide.title === "Embedded apps. Real work."))} aria-label="Open the live productization exercise on the next slide">
           <span className="s14__sheet-head"><small>AI INITIATIVE</small><small>CONFIDENTIAL • DRAFT</small></span>
           <strong>PRODUCTIZATION BRIEF</strong>
           {["OPPORTUNITY", "VALUE", "AUTHORITY", "A.G.E.N.T.S.", "OUTPUT", "NEXT STEPS"].map((f) => <span key={f} className="s14__field"><small>{f}</small><i /></span>)}

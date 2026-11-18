@@ -68,9 +68,11 @@ export default function App() {
         aria-label={`${i + 1} of ${slides.length}: ${slide.title}`}
       >
         {slide.render({ go })}
-        <img className="chrome__logo" src={logo} alt="PDMA: Connecting Innovators Worldwide" />
-        <div className="chrome__series" aria-label="Innovation in Focus, a monthly webcast series"><strong>INNOVATION IN FOCUS</strong><em>A Monthly Webcast Series</em></div>
-        <span className="chrome__site" aria-hidden="true">PDMA.ORG</span>
+        {slide.layout !== "intro" && <>
+          <img className="chrome__logo" src={logo} alt="PDMA: Connecting Innovators Worldwide" />
+          <div className="chrome__series" aria-label="Innovation in Focus, a monthly webcast series"><strong>INNOVATION IN FOCUS</strong><em>A Monthly Webcast Series</em></div>
+          <span className="chrome__site" aria-hidden="true">PDMA.ORG</span>
+        </>}
         {slide.footer && <footer className="chrome__footer"><span className="chrome__footer-label">{slide.footer}</span><span className="chrome__footer-page">{String(i + 1).padStart(2, "0")} / {slides.length}</span></footer>}
       </section>)}
     </div>

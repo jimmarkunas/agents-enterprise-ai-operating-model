@@ -274,3 +274,7 @@
 
 /* Body blocks sit centred between the title and the takeaway banner. */
 .s02__cols, .s03__panels, .s09__grid, .s13__grid, .s14__grid { margin-top: auto; }
+
+/* PDMA intro slides: full-bleed images supplied by PDMA, no deck chrome */
+.slide--intro { padding: 0 !important; background: #fff !important; }
+.intro-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }

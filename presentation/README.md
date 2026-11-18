@@ -1,6 +1,6 @@
 # The New PM Operating System: PDMA webcast app
 
-Jim Markunas's PDMA *Innovation in Focus* webcast (Nov 19, 2026), built as an app instead of a slide deck: 17 slides plus the live **Customer Order Exception Agent** productization exercise on slide 15, in PDMA's Innovation in Focus brand.
+Jim Markunas's PDMA *Innovation in Focus* webcast (Nov 19, 2026), built as an app instead of a slide deck: PDMA's 5 intro slides and 17 content slides plus the live **Customer Order Exception Agent** productization exercise on slide 15, in PDMA's Innovation in Focus brand.
 
 ## Present it
 
@@ -32,7 +32,7 @@ Commit the refreshed downloads with any source change: CI rebuilds them and fail
 
 | Path | What |
 |---|---|
-| `src/slides/Slides.tsx` | All 17 slides: copy and layout |
+| `src/slides/Slides.tsx` | PDMA's 5 intro slides (images in `src/brand/intro/`) and all 17 content slides: copy and layout |
 | `src/slides/slides.css` | Slide layouts on the 1920×1080 canvas |
 | `src/brand/` | PDMA tokens, Poppins (OFL), logo, geometric background |
 | `src/exercise/` | The productization exercise (logic unchanged from the portfolio `/pdma2026` edition; PDMA skin) |
